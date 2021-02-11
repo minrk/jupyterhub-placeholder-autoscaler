@@ -274,6 +274,7 @@ def main():
     assert (
         len(placeholder_reflector.resources) == 1
     ), "Expected exactly one placeholder, got {', '.join(placeholder.resources)}"
+
     while True:
         pods = pod_reflector.resources
         placeholder = next(iter(placeholder_reflector.resources.values()))
