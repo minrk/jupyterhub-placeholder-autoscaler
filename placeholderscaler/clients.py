@@ -2,6 +2,8 @@
 
 avoids creating multiple kubernetes client objects,
 each of which spawns an unused max-size thread pool
+
+vendored from kubespawner-0.15, under BSD-3-Clause license
 """
 
 from unittest.mock import Mock

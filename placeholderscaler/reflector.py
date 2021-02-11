@@ -1,6 +1,6 @@
-"""reflector.py vendored from kubespawner-0.15
+"""reflector.py
 
-Used under BSD-3-Clause license
+vendored from kubespawner-0.15, under BSD-3-Clause license
 """
 # specifically use concurrent.futures for threadsafety
 # asyncio Futures cannot be used across threads

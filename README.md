@@ -7,6 +7,8 @@ keeps placeholder replica count updated to meet:
 - minimum placeholder count
 - minimum total capacity (current users + placeholder count)
 
-For @yuvipanda: https://discourse.jupyter.org/t/request-for-implementation-jupyterhub-aware-kubernetes-cluster-autoscaler/7669
+Reflectors are vendored from kubespawner 0.15. If this code ran in the Hub pod, they could just be imported.
 
-Idea from @manics and @betatim
+[For @yuvipanda](https://discourse.jupyter.org/t/request-for-implementation-jupyterhub-aware-kubernetes-cluster-autoscaler/7669)
+
+Idea from [@manics and @betatim](https://discourse.jupyter.org/t/request-for-implementation-jupyterhub-aware-kubernetes-cluster-autoscaler/7669/7)
