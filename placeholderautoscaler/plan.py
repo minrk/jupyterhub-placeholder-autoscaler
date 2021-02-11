@@ -10,7 +10,7 @@ from unittest import mock
 
 from dateutil.parser import parse as parse_date
 
-from . import scaler
+from . import autoscaler
 
 
 def check_plan(url: str = None, start=None, days: int = 7, interval: int = 1):
@@ -22,7 +22,7 @@ def check_plan(url: str = None, start=None, days: int = 7, interval: int = 1):
     """
 
     if start is None:
-        start = scaler.utcnow()
+        start = autoscaler.utcnow()
 
     if url is None:
         url = os.environ["PLACEHOLDER_ICS_URL"]
@@ -46,9 +46,9 @@ def check_plan(url: str = None, start=None, days: int = 7, interval: int = 1):
     prev_placeholders = -1
     prev_capacity = -1
     while t < end:
-        # mock scaler.utcnow to simulate moving forward in time
-        with mock.patch.object(scaler, "utcnow", lambda: t):
-            min_placeholders, min_capacity = scaler.get_target_capacity()
+        # mock autoscaler.utcnow to simulate moving forward in time
+        with mock.patch.object(autoscaler, "utcnow", lambda: t):
+            min_placeholders, min_capacity = autoscaler.get_target_capacity()
             if (min_placeholders, min_capacity) != (prev_placeholders, prev_capacity):
                 # print new values if there was a change
                 prev_placeholders = min_placeholders
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         if not start.tzinfo:
             start = start.astimezone(datetime.timezone.utc)
     else:
-        start = scaler.utcnow()
+        start = autoscaler.utcnow()
 
     check_plan(
         url=args.url,

@@ -1,4 +1,4 @@
-# juptyerhub-placeholder-scaler
+# juptyerhub-placeholder-autoscaler
 
 Draft of a service to autoscale jupyterhub placeholders
 
@@ -40,6 +40,6 @@ The following environment variables configure the behavior:
 
 You can test your calendar and see what the placeholder counts will be over time with:
 
-    python -m placeholderscaler.plan $calendar_url
+    python -m placeholderautoscaler.plan $calendar_url
 
 which will show you each change in the placeholder count due to calendar events.
