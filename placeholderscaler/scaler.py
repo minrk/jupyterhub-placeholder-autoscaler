@@ -208,7 +208,7 @@ def get_target_capacity_ics(url: str):
 
     If no current events are found, default to environment variables.
     """
-    log.info("Fetching calendar {url}")
+    log.debug(f"Fetching calendar {url}")
     events = get_events(url)
     min_placeholders = None
     min_capacity = None
@@ -232,7 +232,7 @@ def get_target_capacity_ics(url: str):
                 log.info(
                     f"Event {_event_repr(event)} setting min_capacity={min_capacity}"
                 )
-        if event_capacity is None and evt_placeholders is None:
+        if evt_capacity is None and evt_placeholders is None:
             log.debug(f"Event {_event_repr(event)} sets no values")
 
     return min_placeholders, min_capacity
